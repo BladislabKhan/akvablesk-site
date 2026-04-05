@@ -1,0 +1,425 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>АкваБлеск — Админка</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <section class="login-panel" data-login-panel>
+      <div class="panel-card auth-card">
+        <p class="eyebrow">Админка</p>
+        <h1>Вход в панель управления</h1>
+        <p class="lead">Введите логин и пароль администратора, чтобы открыть CRM, клиентов, отзывы, фото и настройки сайта.</p>
+        <form class="stack" data-login-form novalidate>
+          <label>
+            <span>Логин</span>
+            <input type="text" name="username" autocomplete="username" required>
+          </label>
+          <label>
+            <span>Пароль</span>
+            <input type="password" name="password" autocomplete="current-password" required>
+          </label>
+          <button class="button primary" type="submit">Войти</button>
+          <p class="status" data-login-status></p>
+        </form>
+        <div class="auth-links">
+          <a href="./forgot-password.html">Забыли пароль?</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard is-hidden" data-dashboard>
+      <header class="admin-header">
+        <div>
+          <h1>Панель управления</h1>
+        </div>
+      </header>
+
+      <section class="stats-grid admin-nav-grid">
+        <button class="stat-card stat-card--action is-active" type="button" data-admin-view="leads">
+          <span class="stat-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 6.5h8"></path>
+              <path d="M8 12h8"></path>
+              <path d="M8 17.5h5"></path>
+              <path d="M6 3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z"></path>
+            </svg>
+          </span>
+          <strong class="stat-card__title">Заявки</strong>
+        </button>
+        <button class="stat-card stat-card--action" type="button" data-admin-view="photos">
+          <span class="stat-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3.5" y="5" width="17" height="14" rx="3"></rect>
+              <circle cx="9" cy="10" r="1.7"></circle>
+              <path d="m20.5 15-4.2-4.2a1.8 1.8 0 0 0-2.55 0L7 17.5"></path>
+            </svg>
+          </span>
+          <strong class="stat-card__title">Фото</strong>
+        </button>
+        <button class="stat-card stat-card--action admin-only" type="button" data-admin-view="reviews">
+          <span class="stat-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 9.5h10"></path>
+              <path d="M7 13.5h6"></path>
+              <path d="M7 18.5 4.5 21V7A2.5 2.5 0 0 1 7 4.5h10A2.5 2.5 0 0 1 19.5 7v9A2.5 2.5 0 0 1 17 18.5Z"></path>
+            </svg>
+          </span>
+          <strong class="stat-card__title">Отзывы</strong>
+        </button>
+        <button class="stat-card stat-card--action" type="button" data-admin-view="settings">
+          <span class="stat-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3.2"></circle>
+              <path d="M19.4 15a1.2 1.2 0 0 0 .24 1.32l.04.04a1.7 1.7 0 0 1 0 2.41 1.7 1.7 0 0 1-2.4 0l-.05-.04a1.2 1.2 0 0 0-1.31-.24 1.2 1.2 0 0 0-.73 1.1V20a1.7 1.7 0 0 1-3.4 0v-.07a1.2 1.2 0 0 0-.79-1.13 1.2 1.2 0 0 0-1.31.24l-.05.04a1.7 1.7 0 0 1-2.4 0 1.7 1.7 0 0 1 0-2.41l.04-.04A1.2 1.2 0 0 0 6 15.31a1.2 1.2 0 0 0-1.1-.73H4.83a1.7 1.7 0 0 1 0-3.4h.07A1.2 1.2 0 0 0 6 10.39a1.2 1.2 0 0 0-.24-1.32l-.04-.04a1.7 1.7 0 0 1 0-2.41 1.7 1.7 0 0 1 2.4 0l.05.04a1.2 1.2 0 0 0 1.31.24h.01a1.2 1.2 0 0 0 .72-1.1V5.76a1.7 1.7 0 0 1 3.4 0v.07a1.2 1.2 0 0 0 .73 1.1 1.2 1.2 0 0 0 1.31-.24l.05-.04a1.7 1.7 0 0 1 2.4 0 1.7 1.7 0 0 1 0 2.41l-.04.04a1.2 1.2 0 0 0-.24 1.32v.01a1.2 1.2 0 0 0 1.1.72h.07a1.7 1.7 0 0 1 0 3.4h-.07a1.2 1.2 0 0 0-1.1.72Z"></path>
+            </svg>
+          </span>
+          <strong class="stat-card__title">Настройки</strong>
+        </button>
+      </section>
+
+      <section class="dashboard-sections">
+        <section class="dashboard-section" data-admin-section="leads" id="leads">
+          <article class="panel-card">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">CRM</p>
+                <h2>Заявки</h2>
+              </div>
+              <div class="toolbar-actions">
+                <button class="button ghost" type="button" data-back-dashboard>Главная админки</button>
+                <button class="button primary" type="button" data-add-lead>Добавить заявку</button>
+                <button class="button secondary" type="button" data-export-excel>Скачать Excel</button>
+              </div>
+            </div>
+
+            <div class="crm-toolbar">
+              <label class="field-inline field-search">
+                <span>Поиск по заявкам</span>
+                <input type="search" placeholder="Имя, телефон, услуга, комментарий" data-crm-search>
+              </label>
+              <label class="field-inline">
+                <span>Статус</span>
+                <select data-crm-status-filter>
+                  <option value="all">Все статусы</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="crm-layout">
+              <div class="crm-stream">
+                <div class="table-wrap crm-table-wrap">
+                  <table class="admin-table admin-table--crm">
+                    <thead>
+                      <tr>
+                        <th>Дата</th>
+                        <th>Заявка</th>
+                        <th>Услуга</th>
+                        <th>Статус</th>
+                        <th>Выезд</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody data-leads-table></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <aside class="crm-detail">
+                <div class="crm-detail__empty" data-lead-empty>Выберите заявку из потока, чтобы открыть CRM-карточку.</div>
+                <form class="stack is-hidden" data-lead-form novalidate>
+                  <input type="hidden" name="leadId">
+                  <div class="crm-detail__head">
+                    <h3 data-lead-title>Заявка</h3>
+                    <button class="button secondary" type="button" data-confirm-dispatch>Подтвердить выезд</button>
+                  </div>
+
+                  <div class="grid two">
+                    <label><span>Имя</span><input type="text" name="name"></label>
+                    <label><span>Телефон</span><input type="text" name="phone"></label>
+                    <label><span>E-mail</span><input type="email" name="email"></label>
+                    <label><span>Услуга</span><input type="text" name="service"></label>
+                    <label><span>Статус</span>
+                      <select name="status">
+                        <option value="новая">новая</option>
+                        <option value="дозвон">дозвон</option>
+                        <option value="согласовано">согласовано</option>
+                        <option value="подтверждено">подтверждено</option>
+                        <option value="выезд">выезд</option>
+                        <option value="выполнено">выполнено</option>
+                        <option value="отменено">отменено</option>
+                      </select>
+                    </label>
+                    <label><span>Дата и время записи / выезда</span><input type="datetime-local" name="scheduledAt"></label>
+                    <label><span>ID заявки</span><input type="text" name="leadInfoId" readonly></label>
+                    <label class="checkbox-field">
+                      <input type="checkbox" name="confirmed">
+                      <span>Согласие на выезд подтверждено администратором</span>
+                    </label>
+                  </div>
+
+                  <label>
+                    <span>Комментарий администратора</span>
+                    <textarea name="comment" placeholder="Комментарий после звонка, детали выезда, пожелания клиента"></textarea>
+                  </label>
+
+                  <label>
+                    <span>Сообщение клиента</span>
+                    <textarea name="message" placeholder="Что клиент оставил в форме"></textarea>
+                  </label>
+
+                  <div class="crm-meta" data-lead-meta></div>
+
+                  <div class="form-actions">
+                    <button class="button primary" type="submit">Сохранить карточку</button>
+                    <button class="button ghost" type="button" data-delete-lead>Удалить заявку</button>
+                  </div>
+                  <p class="status" data-lead-form-status></p>
+                </form>
+
+              </aside>
+            </div>
+          </article>
+        </section>
+
+        <section class="dashboard-section is-hidden admin-only" data-admin-section="reviews" id="reviews">
+          <article class="panel-card">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Отзывы</p>
+                <h2>Интеграция отзывов</h2>
+              </div>
+              <div class="toolbar-actions">
+                <button class="button ghost" type="button" data-back-dashboard>Главная админки</button>
+              </div>
+            </div>
+
+            <form class="stack" data-review-integration-form>
+              <div class="upload-card">
+                <strong>Официальный сценарий</strong>
+                <p class="lead">Используйте ссылку на бизнес-профиль Яндекс Карт и официальный бейдж или виджет рейтинга Яндекса. Новые отзывы появляются на сайте только через официальный источник Яндекса или допустимую серверную интеграцию. Если такого канала нет, на сайте остаются бейдж, виджет и ссылка на отзывы без фейкового автоимпорта.</p>
+              </div>
+              <div class="grid two">
+                <label><span>Ссылка на бизнес-профиль Яндекс Карт</span><input type="url" name="yandexBusinessUrl" placeholder="https://yandex.ru/maps/..."></label>
+                <label><span>Ссылка на профиль 2ГИС</span><input type="url" name="gisBusinessUrl" placeholder="https://2gis.ru/..."></label>
+                <label class="span-2"><span>Ссылка на официальный бейдж / iframe Яндекс Бизнеса</span><input type="text" name="yandexWidgetUrl" placeholder="https://yandex.ru/maps-reviews-widget/..."></label>
+              </div>
+              <button class="button primary" type="submit">Сохранить ссылки на отзывы</button>
+              <p class="status" data-review-integration-status></p>
+            </form>
+
+            <div class="panel-divider"></div>
+
+            <form class="stack" data-review-cards-form>
+              <div class="grid two">
+                <div class="upload-card">
+                  <strong>Карточка 2ГИС</strong>
+                  <label><span>Заголовок</span><input type="text" name="gisTitle"></label>
+                  <label><span>Описание</span><textarea name="gisText"></textarea></label>
+                  <label><span>Подпись кнопки</span><input type="text" name="gisButtonLabel"></label>
+                  <label><span>Ссылка кнопки</span><input type="url" name="gisButtonUrl"></label>
+                  <label><span>Ссылка на страницу отзыва</span><input type="url" name="gisReviewUrl"></label>
+                  <label class="checkbox-field">
+                    <input type="checkbox" name="gisOpenInNewTab">
+                    <span>Открывать в новой вкладке</span>
+                  </label>
+                </div>
+                <div class="upload-card">
+                  <strong>Карточка Яндекс</strong>
+                  <label><span>Заголовок</span><input type="text" name="yandexTitle"></label>
+                  <label><span>Описание</span><textarea name="yandexText"></textarea></label>
+                  <label><span>Подпись кнопки</span><input type="text" name="yandexButtonLabel"></label>
+                  <label><span>Ссылка кнопки</span><input type="url" name="yandexButtonUrl"></label>
+                  <label><span>Ссылка на страницу отзыва</span><input type="url" name="yandexReviewUrl"></label>
+                  <label class="checkbox-field">
+                    <input type="checkbox" name="yandexOpenInNewTab">
+                    <span>Открывать в новой вкладке</span>
+                  </label>
+                </div>
+              </div>
+              <button class="button primary" type="submit">Сохранить карточки отзывов</button>
+              <p class="status" data-review-cards-status></p>
+            </form>
+
+            <div class="panel-divider"></div>
+
+            <form class="stack" data-qr-form>
+              <div class="grid two">
+                <div class="upload-card">
+                  <label><span>Официальный QR Яндекс</span><input type="file" accept=".jpg,.jpeg,.png,.webp,.svg" data-upload-qr-yandex></label>
+                  <input type="hidden" name="yandexQrImage">
+                  <p class="upload-inline-status" data-upload-qr-yandex-status>Файл не выбран</p>
+                </div>
+                <div class="upload-card">
+                  <label><span>Официальный QR 2ГИС</span><input type="file" accept=".jpg,.jpeg,.png,.webp,.svg" data-upload-qr-gis></label>
+                  <input type="hidden" name="gisQrImage">
+                  <p class="upload-inline-status" data-upload-qr-gis-status>Файл не выбран</p>
+                </div>
+              </div>
+              <button class="button primary" type="submit">Сохранить QR-коды</button>
+              <p class="status" data-qr-status></p>
+            </form>
+
+            <div class="panel-divider"></div>
+
+            <div class="crm-layout reviews-admin-layout">
+              <div class="list-block" data-reviews-list></div>
+
+              <form class="stack" data-review-form novalidate>
+                <input type="hidden" name="reviewId">
+                <div class="panel-head panel-head--compact">
+                  <div>
+                    <p class="eyebrow">Карточка отзыва</p>
+                    <h3>Ручное управление отзывом</h3>
+                  </div>
+                </div>
+                <div class="grid two">
+                  <label><span>Имя</span><input type="text" name="author" required></label>
+                  <label><span>Источник</span><input type="text" name="source" placeholder="Яндекс Карты, 2ГИС, сайт" required></label>
+                  <label><span>Оценка</span>
+                    <select name="rating">
+                      <option value="5">5</option>
+                      <option value="4">4</option>
+                      <option value="3">3</option>
+                      <option value="2">2</option>
+                      <option value="1">1</option>
+                    </select>
+                  </label>
+                  <label><span>Дата отзыва</span><input type="date" name="publishedAt"></label>
+                  <label><span>Ссылка на отзыв</span><input type="url" name="link" placeholder="https://..."></label>
+                  <label><span>Привязка QR</span>
+                    <select name="qrBinding">
+                      <option value="">Без привязки</option>
+                      <option value="yandex">Яндекс</option>
+                      <option value="gis">2ГИС</option>
+                    </select>
+                  </label>
+                  <label class="checkbox-field span-2">
+                    <input type="checkbox" name="published">
+                    <span>Показывать отзыв на сайте</span>
+                  </label>
+                </div>
+                <label><span>Текст отзыва</span><textarea name="text" required></textarea></label>
+                <div class="form-actions">
+                  <button class="button primary" type="submit">Сохранить отзыв</button>
+                  <button class="button ghost" type="button" data-review-reset>Очистить форму</button>
+                </div>
+                <p class="status" data-review-status></p>
+              </form>
+            </div>
+          </article>
+        </section>
+
+        <section class="dashboard-section is-hidden" data-admin-section="photos" id="photos">
+          <article class="panel-card">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Фото</p>
+                <h2>Before / After</h2>
+              </div>
+              <div class="toolbar-actions">
+                <button class="button ghost" type="button" data-back-dashboard>Главная админки</button>
+              </div>
+            </div>
+
+            <form class="stack" data-before-after-form>
+              <input type="hidden" name="itemId">
+              <label><span>Название</span><input type="text" name="title" required></label>
+              <div class="grid two">
+                <div class="upload-card">
+                  <label><span>Фото «До»</span><input type="file" accept=".jpg,.jpeg,.png,.webp,.svg" data-upload-before></label>
+                  <input type="hidden" name="before">
+                  <p class="upload-inline-status" data-upload-before-status>Файл не выбран</p>
+                </div>
+                <div class="upload-card">
+                  <label><span>Фото «После»</span><input type="file" accept=".jpg,.jpeg,.png,.webp,.svg" data-upload-after></label>
+                  <input type="hidden" name="after">
+                  <p class="upload-inline-status" data-upload-after-status>Файл не выбран</p>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="button primary" type="submit">Сохранить пару</button>
+                <button class="button ghost" type="button" data-before-after-reset>Очистить форму</button>
+              </div>
+              <p class="status" data-before-after-status></p>
+            </form>
+
+            <div class="panel-divider"></div>
+            <div class="list-block" data-before-after-list></div>
+          </article>
+        </section>
+
+        <section class="dashboard-section is-hidden" data-admin-section="settings" id="settings">
+          <article class="panel-card">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Настройки</p>
+                <h2>Личный кабинет и данные сайта</h2>
+              </div>
+              <div class="toolbar-actions">
+                <button class="button ghost" type="button" data-back-dashboard>Главная админки</button>
+              </div>
+            </div>
+
+            <div class="settings-links-grid">
+              <a class="panel-card settings-link-card admin-only" href="./security.html">
+                <span class="settings-link-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3.8 18.5 6v5.4c0 4.2-2.5 7.3-6.5 8.8-4-1.5-6.5-4.6-6.5-8.8V6L12 3.8Z"></path>
+                    <path d="M9.8 11.8a2.2 2.2 0 1 1 4.4 0v2.9H9.8Z"></path>
+                  </svg>
+                </span>
+                <strong>Личный кабинет</strong>
+                <span>Логин, e-mail и безопасность входа в админку.</span>
+              </a>
+
+              <a class="panel-card settings-link-card admin-only" href="./site-settings.html">
+                <span class="settings-link-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3.2"></circle>
+                    <path d="M19.4 15a1.2 1.2 0 0 0 .24 1.32l.04.04a1.7 1.7 0 0 1 0 2.41 1.7 1.7 0 0 1-2.4 0l-.05-.04a1.2 1.2 0 0 0-1.31-.24 1.2 1.2 0 0 0-.73 1.1V20a1.7 1.7 0 0 1-3.4 0v-.07a1.2 1.2 0 0 0-.79-1.13 1.2 1.2 0 0 0-1.31.24l-.05.04a1.7 1.7 0 0 1-2.4 0 1.7 1.7 0 0 1 0-2.41l.04-.04A1.2 1.2 0 0 0 6 15.31a1.2 1.2 0 0 0-1.1-.73H4.83a1.7 1.7 0 0 1 0-3.4h.07A1.2 1.2 0 0 0 6 10.39a1.2 1.2 0 0 0-.24-1.32l-.04-.04a1.7 1.7 0 0 1 0-2.41 1.7 1.7 0 0 1 2.4 0l.05.04a1.2 1.2 0 0 0 1.31.24h.01a1.2 1.2 0 0 0 .72-1.1V5.76a1.7 1.7 0 0 1 3.4 0v.07a1.2 1.2 0 0 0 .73 1.1 1.2 1.2 0 0 0 1.31-.24l.05-.04a1.7 1.7 0 0 1 2.4 0 1.7 1.7 0 0 1 0 2.41l-.04.04a1.2 1.2 0 0 0-.24 1.32v.01a1.2 1.2 0 0 0 1.1.72h.07a1.7 1.7 0 0 1 0 3.4h-.07a1.2 1.2 0 0 0-1.1.72Z"></path>
+                  </svg>
+                </span>
+                <strong>Данные сайта</strong>
+                <span>Телефон, MAX и основные контактные данные публичного сайта.</span>
+              </a>
+
+              <button class="panel-card settings-link-card settings-link-card--logout" type="button" data-logout>
+                <span class="settings-link-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 7.5V5.8A2.8 2.8 0 0 0 11.2 3H7.8A2.8 2.8 0 0 0 5 5.8v12.4A2.8 2.8 0 0 0 7.8 21h3.4a2.8 2.8 0 0 0 2.8-2.8v-1.7"></path>
+                    <path d="M10 12h9"></path>
+                    <path d="m15.5 8.5 3.5 3.5-3.5 3.5"></path>
+                  </svg>
+                </span>
+                <strong>Выйти</strong>
+                <span>Завершить сессию и вернуться на страницу входа.</span>
+              </button>
+            </div>
+          </article>
+        </section>
+
+      </section>
+    </section>
+
+    <footer class="admin-footer">
+      <div class="admin-footer__inner">
+        <span>© АкваБлеск 2026</span>
+        <span>Digital product by BladislavKhan</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

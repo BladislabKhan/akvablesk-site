@@ -1,0 +1,47 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.idea/
+.vscode/
+*.suo
+*.user
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local env / secrets
+.env
+.env.*
+*.local
+
+# Archives / exports
+*.zip
+*.7z
+*.rar
+
+# Temp / backup
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+
+# Cache / generated
+.cache/
+dist/
+build/
+coverage/
+
+# Runtime backend data
+data/*.json
+uploads/*
+!uploads/.gitkeep

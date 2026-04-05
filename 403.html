@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>403 — Доступ запрещён</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <script src="accessibility.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button class="accessibility-toggle accessibility-toggle--floating" type="button" data-accessibility-toggle data-tooltip="Версия для слабовидящих" aria-label="Версия для слабовидящих" title="Версия для слабовидящих" aria-pressed="false">
+    <span class="accessibility-toggle__icon" aria-hidden="true">👁</span>
+    <span class="sr-only">Версия для слабовидящих</span>
+  </button>
+  <main class="view" style="display:block;">
+    <section class="section thanks" style="min-height:100svh;display:grid;align-items:center;">
+      <div class="container narrow">
+        <div class="thanks-badge">403</div>
+        <h1 class="section-title">Доступ запрещён</h1>
+        <p class="lead muted center">У вас нет прав для просмотра этой страницы. Вернитесь на главную или войдите в админку с нужными правами.</p>
+        <div class="button-row center">
+          <a class="button primary" href="./index.html">На главную</a>
+          <a class="button outline" href="./admin/">Вход в админку</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>АкваБлеск — Данные сайта</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <main class="page-shell">
+      <section class="panel-card page-card">
+        <p class="eyebrow">Данные сайта</p>
+        <h1>Данные сайта</h1>
+        <p class="lead">На этой странице редактируются основные контактные данные, MAX и блок карты, которые сразу используются на главной странице сайта. Настройки отзывов и QR-кодов находятся в разделе отзывов на главной панели.</p>
+        <form class="stack" data-site-settings-form>
+          <div class="grid two">
+            <label><span>Телефон</span><input type="text" name="phoneDisplay" required></label>
+            <label><span>Ссылка на MAX</span><input type="url" name="messengerUrl" required></label>
+          </div>
+          <div class="grid two">
+            <label><span>Город</span><input type="text" name="city" required></label>
+            <label><span>Режим работы</span><input type="text" name="hours" required></label>
+          </div>
+          <label><span>Адрес</span><input type="text" name="address" required></label>
+          <div class="grid two">
+            <label><span>Заголовок карты</span><input type="text" name="mapTitle" required></label>
+            <label><span>Ссылка на маршрут</span><input type="url" name="mapRouteUrl"></label>
+          </div>
+          <label><span>Подпись под картой</span><textarea name="mapNote" rows="3"></textarea></label>
+          <label><span>Готовый iframe / embed URL карты</span><input type="url" name="mapEmbedUrl" placeholder="https://..."></label>
+          <div class="upload-card">
+            <strong>Почта / уведомления о заявках</strong>
+            <p class="lead">На этот e-mail будут автоматически приходить новые заявки из форм сайта. Если клиент указал свою почту, система может дополнительно отправлять ему подтверждение.</p>
+            <div class="grid two">
+              <label><span>Рабочий e-mail владельца</span><input type="email" name="ownerEmail" required></label>
+              <label class="checkbox-label"><input type="checkbox" name="sendClientConfirmation"><span>Отправлять клиенту автоответ, если он указал e-mail</span></label>
+            </div>
+          </div>
+          <button class="button primary" type="submit">Сохранить данные сайта</button>
+          <p class="status" data-site-settings-status></p>
+        </form>
+        <div class="upload-card">
+          <strong>Отзывы и QR-коды</strong>
+          <p class="lead">Ссылки на Яндекс Бизнес, официальный виджет и QR-коды Яндекс / 2ГИС настраиваются в разделе «Отзывы» главной панели админки.</p>
+        </div>
+        <div class="auth-links">
+          <a href="./index.html">Вернуться в админку</a>
+          <a href="./security.html">Личный кабинет</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="admin-footer">
+      <div class="admin-footer__inner">
+        <span>© АкваБлеск 2026</span>
+        <span>Digital product by BladislavKhan</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./site-settings.js"></script>
+</body>
+</html>

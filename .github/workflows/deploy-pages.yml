@@ -1,0 +1,76 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare static site
+        shell: pwsh
+        run: |
+          $outputDir = Join-Path $PWD "_site"
+          if (Test-Path $outputDir) {
+            Remove-Item -Recurse -Force $outputDir
+          }
+          New-Item -ItemType Directory -Force -Path $outputDir | Out-Null
+
+          Get-ChildItem -Force | Where-Object {
+            $_.Name -notin @(".git", ".github", "_site")
+          } | ForEach-Object {
+            Copy-Item -LiteralPath $_.FullName -Destination $outputDir -Recurse -Force
+          }
+
+          $version = ('${{ github.sha }}').Substring(0, 8)
+          $indexPath = Join-Path $outputDir "index.html"
+          $content = Get-Content -LiteralPath $indexPath -Raw -Encoding UTF8
+
+          $content = [regex]::Replace(
+            $content,
+            '(?<=\b(?:src|href|content)=["''])(assets/[^"'']+|style\.css|site-config\.js|script\.js|site\.webmanifest|favicon(?:-[^"'']+)?\.(?:png|svg|ico)|apple-touch-icon\.png)(?=["''])',
+            { param($match) "$($match.Value)?v=$version" }
+          )
+
+          $content = [regex]::Replace(
+            $content,
+            '(?<="(?:image|logo)"\s*:\s*")(assets/[^"]+|favicon(?:-[^"]+)?\.(?:png|svg|ico)|apple-touch-icon\.png)(?=")',
+            { param($match) "$($match.Value)?v=$version" }
+          )
+
+          Set-Content -LiteralPath $indexPath -Value $content -Encoding UTF8
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

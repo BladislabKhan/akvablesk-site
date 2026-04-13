@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>АкваБлеск — Личный кабинет</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <main class="page-shell">
+      <section class="panel-card page-card">
+        <p class="eyebrow">Личный кабинет</p>
+        <h1>Безопасность аккаунта</h1>
+        <p class="lead">На этой странице можно обновить логин, e-mail и пароль администратора.</p>
+        <form class="stack" data-security-form>
+          <label><span>Текущий логин</span><input type="text" name="username" autocomplete="username" required></label>
+          <label><span>E-mail для восстановления</span><input type="email" name="email" autocomplete="email" required></label>
+          <label><span>Текущий пароль</span><input type="password" name="currentPassword" autocomplete="current-password" required></label>
+          <label><span>Новый логин</span><input type="text" name="nextUsername" required></label>
+          <label><span>Новый пароль</span><input type="password" name="newPassword" minlength="8" autocomplete="new-password" required></label>
+          <button class="button primary" type="submit">Сохранить данные</button>
+          <p class="status" data-security-status></p>
+        </form>
+        <div class="auth-links">
+          <a href="./index.html">Вернуться в админку</a>
+          <a href="./forgot-password.html">Забыли пароль?</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="admin-footer">
+      <div class="admin-footer__inner">
+        <span>© АкваБлеск 2026</span>
+        <span>Digital product by BladislavKhan</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./security.js"></script>
+</body>
+</html>
